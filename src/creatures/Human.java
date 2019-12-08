@@ -11,11 +11,10 @@ public class Human extends Creature {
     private int age;
     private String act;
 
-    public Human(Gender gender, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, String act, int IQ, int age) {
-        super(gender, name, room, smell, first, distanceToTarget, speed, last);
+    public Human(Gender gender, Act act, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, int IQ, int age) {
+        super(gender, act, name, room, smell, first, distanceToTarget, speed, last);
         this.IQ = IQ;
         this.age = age;
-        this.act = act;
     }
 
     @Override
@@ -26,7 +25,7 @@ public class Human extends Creature {
     @Override
     public int hashCode(){
         Double distanceToTarget = new Double(this.getDistanceToTarget());
-        return Objects.hash(this.getName(), this.getMyGender(), this.getFirst(), this.getSmell(), this.getAct(), distanceToTarget) * 11 +
+        return Objects.hash(this.getName(), this.getMyGender(), this.getFirst(), this.getSmell(), this.getMyAct(), distanceToTarget) * 11 +
                 this.getLastRoom().hashCode() * 13 +
                 this.getAge() * 17 +
                 this.getIQ() * 19 +
@@ -42,13 +41,6 @@ public class Human extends Creature {
                 this.getAge() == other.getAge() &&
                 this.getName().equals(other.getName());
     }
-
-    public void setAct(String act) {
-        this.act = act;
-    }
-
-    @Override
-    public String getAct() {return this.act;}
 
     public int getIQ() {return this.IQ;}
 

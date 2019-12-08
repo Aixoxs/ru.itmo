@@ -4,7 +4,21 @@ import place.Place;
 
 public abstract class Creature implements MoveAction{
     public enum Gender {MALE, FEMAALE, UNKNOWN};
+    public enum Act {
+        FLY("полетело"),
+        RUN("побежал"),
+        JUMP("скакала"),
+        RUSH("помчался");
 
+        private final String action;
+        Act(String action){
+            this.action = action;
+        };
+
+        public String getAction() {return this.action;}
+    }
+
+    private Act MyAct;
     private Gender MyGender;
     private String Name;
     private double speed;
@@ -18,7 +32,8 @@ public abstract class Creature implements MoveAction{
     private double distanceToTarget;
 
 
-    public Creature(Gender gender, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last)  {
+    public Creature(Gender gender, Act act, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last)  {
+        this.MyAct = act;
         this.MyGender = gender;
         this.Name = name;
         this.lastRoom = room;
@@ -85,5 +100,5 @@ public abstract class Creature implements MoveAction{
 
     public String getLastAct(){return "";}
 
-    public String getAct() {return "";}
+    public Act getMyAct() {return MyAct;}
 }
