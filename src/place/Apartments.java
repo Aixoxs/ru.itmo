@@ -3,7 +3,7 @@ package place;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Apartments extends Place implements SquareCalculated {
+public class Apartments extends Place implements Communication {
     private ArrayList<Place> rooms = new ArrayList<>();
     private ArrayList<ArrayList<Place>> communications = new ArrayList<>();
     private double height;
@@ -53,15 +53,6 @@ public class Apartments extends Place implements SquareCalculated {
             return this.communications.get(num).get(itemIndex);
         }
         else return null;
-    }
-
-    @Override
-    public double getSquare() {
-        double square = 0;
-        for (int i = 0; i < this.rooms.size(); i++){
-            square += ((SquareCalculated)rooms.get(i)).getSquare();
-        }
-        return square;
     }
 
     @Override

@@ -5,7 +5,7 @@ import place.Room;
 
 import java.util.Objects;
 
-public class Human extends Creature implements MoveAction {
+public class Human extends Creature {
 
     private int IQ;
     private int age;
@@ -47,6 +47,7 @@ public class Human extends Creature implements MoveAction {
         this.act = act;
     }
 
+    @Override
     public String getAct() {return this.act;}
 
     public int getIQ() {return this.IQ;}

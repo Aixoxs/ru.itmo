@@ -1,6 +1,7 @@
 package creatures;
 
-//действие существа
+//классы использующие этот интерфейс могут участвовать в погоне
 public interface MoveAction {
-    String getAct();
+    double getSpeed();
+    double getDistanceToTarget();
 }

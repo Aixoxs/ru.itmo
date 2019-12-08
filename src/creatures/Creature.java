@@ -2,7 +2,7 @@ package creatures;
 
 import place.Place;
 
-public abstract class Creature {
+public abstract class Creature implements MoveAction{
     public enum Gender {MALE, FEMAALE, UNKNOWN};
 
     private Gender MyGender;
@@ -14,7 +14,7 @@ public abstract class Creature {
     // true если сушество первое в погоне
     private boolean first;
     // true если сушество последнее в погоне
-    public boolean last;
+    private boolean last;
     private double distanceToTarget;
 
 
@@ -84,4 +84,6 @@ public abstract class Creature {
     public double getDistanceToTarget() { return this.distanceToTarget; }
 
     public String getLastAct(){return "";}
+
+    public String getAct() {return "";}
 }

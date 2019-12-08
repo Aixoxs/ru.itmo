@@ -1,6 +1,6 @@
 package place;
 
-public class Room extends Place implements SquareCalculated{
+public class Room extends Place {
     private double width;
     private double length;
 
@@ -16,10 +16,6 @@ public class Room extends Place implements SquareCalculated{
 
     public double getLength() {
         return this.length;
-    }
-    @Override
-    public double getSquare() {
-        return getLength() * getWidth();
     }
 
     @Override

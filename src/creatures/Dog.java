@@ -5,7 +5,7 @@ import place.Room;
 
 import java.util.Objects;
 
-public class Dog extends Creature implements MoveAction {
+public class Dog extends Creature {
 
     public enum ColorDog{RED, BLUE, BLACK, WHITE, YELLOW, GRAY, PINK};
     private ColorDog MyColor;
@@ -41,6 +41,7 @@ public class Dog extends Creature implements MoveAction {
         return this.getMyColor().equals(other.getMyColor());
     }
 
+    @Override
     public String getAct() {
         return "мчался";
     }

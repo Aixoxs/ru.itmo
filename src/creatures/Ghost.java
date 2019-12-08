@@ -4,7 +4,7 @@ import place.Place;
 
 import java.util.Objects;
 
-public class Ghost extends Creature implements MoveAction{
+public class Ghost extends Creature {
     public enum ColorGhost {WHITE, BLUE, TRANSPARENT, PURPLE}
     private ColorGhost MyColor;
 
@@ -34,6 +34,7 @@ public class Ghost extends Creature implements MoveAction{
         return this.getMyColor().equals(other.getMyColor());
     }
 
+    @Override
     public String getAct() {
         return "полетело";
     }
