@@ -1,6 +1,6 @@
 package creatures;
 
-// классы использующие этот интерфейс могут участвовать в движении в качестве Mammal
+//действие существа
 public interface MoveAction {
     String getAct();
 }
