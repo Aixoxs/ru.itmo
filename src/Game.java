@@ -50,7 +50,7 @@ public class Game {
                     Thread.sleep(1000);
                     characters.get(number).setDistanceToTarget(characters.get(number).getDistanceToTarget() + characters.get(number - 1).getSpeed() - characters.get(number).getSpeed());
                 }
-                //Два варианта для игроков, которые не являются ни последними, ни перавыми. В обоих случаях расстояние изменяется
+                //Два варианта предложения для игроков, которые не являются ни последними, ни перавыми. В обоих случаях расстояние изменяется
                 else if (Math.random() < 0.5) {
                     System.out.println(characters.get(number).getName() + " " + characters.get(number).getMyAct().getAction() + " следом");
                     Thread.sleep(1000);
