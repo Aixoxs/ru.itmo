@@ -63,7 +63,8 @@ public abstract class Creature implements MoveAction{
                 this.last == other.last &&
                 this.smell == other.smell &&
                 this.lastRoom.equals(other.lastRoom) &&
-                this.MyGender == other.MyGender;
+                this.MyGender == other.MyGender &&
+                this.MyAct == other.MyAct;
     }
 
     public String getName() { return this.Name; }
@@ -97,8 +98,6 @@ public abstract class Creature implements MoveAction{
     public void setDistanceToTarget(double distance) {this.distanceToTarget = distance;}
 
     public double getDistanceToTarget() { return this.distanceToTarget; }
-
-    public String getLastAct(){return "";}
 
     public Act getMyAct() {return MyAct;}
 }
