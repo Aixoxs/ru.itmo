@@ -5,23 +5,17 @@ import java.util.ArrayList;
 
 public class Game {
     ArrayList<Creature> characters = new ArrayList<>();
-    Place apartments;
+    Communication apartments;
 
-    public Game(Place apartments) {
+    public Game(Communication apartments) {
         this.apartments = apartments;
     }
-
-
 
     public void addPlayer(Creature creature) {
         characters.add(creature);
     }
 
     public void startGame() throws InterruptedException {
-        Apartments apps;
-        if (this.apartments instanceof Apartments) {
-            apps = (Apartments) this.apartments;
-
             int fatigue = 0;
             int count = 0;
 
@@ -30,7 +24,7 @@ public class Game {
             characters.get(0).setFirst(true);
             characters.get(characters.size() - 1).setLast(true);
 
-            characters.get(0).setLastRoom(apps.getRoom(0));
+            characters.get(0).setLastRoom(apartments.getRoom(0));
             System.out.println(characters.get(0).getLastRoom().getName() + " стала началом погони");
             System.out.println("Впереди " + characters.get(0).getMyAct().getAction() + " " + characters.get(0).getName());
             Thread.sleep(1000);
@@ -39,9 +33,9 @@ public class Game {
                 int number = i % characters.size();
                 //Условие для первого игрока, так как он никого не догоняет, то distanceToTarget у него не изменяется
                 if (characters.get(number).getFirst()) {
-                    characters.get(number).setLastRoom(apps.getCommunication(characters.get(0).getLastRoom()));
+                    characters.get(number).setLastRoom(apartments.getCommunication(characters.get(0).getLastRoom()));
                     System.out.println("Погоня переместилась и ее продолжением стала " + characters.get(0).getLastRoom().getName());
-                    System.out.println("Впереди все еще " + characters.get(0).getMyAct().getAction() + " " + characters.get(0).getName() + characters.get(0).getLastAct());
+                    System.out.println("Впереди все еще " + characters.get(0).getMyAct().getAction() + " " + characters.get(0).getName());
                     Thread.sleep(1000);
                 }
                 //действие последнего в игре и изменение расстояний
@@ -81,6 +75,5 @@ public class Game {
             if (fatigue > -1) {
                 System.out.println("Игра закончилась потому что игроки устали");
             }
-        }
     }
 }
