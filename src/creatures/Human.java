@@ -1,7 +1,7 @@
 package creatures;
 
-import place.Place;
-import place.Room;
+import item.Item;
+import exceptions.NotEnoughIQ;
 
 import java.util.Objects;
 
@@ -11,10 +11,18 @@ public class Human extends Creature {
     private int age;
     private String act;
 
-    public Human(Gender gender, Act act, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, int IQ, int age) {
+    public Human(Gender gender, Act act, String name, Item room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, int IQ, int age) {
         super(gender, act, name, room, smell, first, distanceToTarget, speed, last);
         this.IQ = IQ;
         this.age = age;
+    }
+
+    @Override
+    public void changeDistance(Creature target) throws NotEnoughIQ {
+        if (IQ < 47) {
+            throw new NotEnoughIQ("Не может догнать, потому что тупой");
+        }
+        super.changeDistance(target);
     }
 
     @Override

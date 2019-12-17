@@ -1,6 +1,6 @@
-package place;
+package item;
 
-public class Room extends Place {
+public class Room extends Item {
     private double width;
     private double length;
 

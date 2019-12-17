@@ -1,8 +1,8 @@
-package place;
-public abstract class Place {
+package item;
+public abstract class Item {
     private String Name;
 
-    public Place(String name) {
+    public Item(String name) {
         this.Name = name;
     }
 
@@ -21,7 +21,7 @@ public abstract class Place {
 
         if (otherObject == null || this.getClass() != otherObject.getClass()) return false;
 
-        Place place = (Place) otherObject;
-        return this.getName().equals(place.getName());
+        Item item = (Item) otherObject;
+        return this.getName().equals(item.getName());
     }
 }

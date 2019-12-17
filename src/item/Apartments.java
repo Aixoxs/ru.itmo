@@ -1,28 +1,27 @@
-package place;
+package item;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-public class Apartments extends Place implements Communication {
-    private ArrayList<Place> rooms = new ArrayList<>();
-    private ArrayList<ArrayList<Place>> communications = new ArrayList<>();
+public class Apartments extends Item implements Communication {
+    private ArrayList<Item> rooms = new ArrayList<>();
+    private ArrayList<ArrayList<Item>> communications = new ArrayList<>();
     private double height;
     private int floor;
 
-    public Apartments(String name, double height, int floor, Place... R) {
+    public Apartments(String name, double height, int floor, Item... R) {
         super(name);
         this.height = height;
         this.floor = floor;
-        for (Place r: R) {
+        for (Item r: R) {
             rooms.add(r);
         }
         for (int i = 0; i < rooms.size(); i++) {
-            this.communications.add(new ArrayList<Place>());
+            this.communications.add(new ArrayList<Item>());
         }
     }
 
     //Установка соседних комнат
-    public void addCommunication(Place receiving, Place... neighboringRoom) {
+    public void addCommunication(Item receiving, Item... neighboringRoom) {
         int num = 0;
         for (int i = 0; i < this.rooms.size(); i++) {
             if (this.rooms.get(i).equals(receiving)) {
@@ -32,14 +31,22 @@ public class Apartments extends Place implements Communication {
             else num = -1;
         }
         if (num > -1) {
-            for (Place r: neighboringRoom) {
+            for (Item r: neighboringRoom) {
                 this.communications.get(num).add(r);
             }
         }
     }
 
+    public void addCommunication(int number, ArrayList rooms) {
+        for (int i = 0; i < rooms.size(); i++) {
+            if (i != number) {
+                this.communications.get(number).add(this.rooms.get(i));
+            }
+        }
+    }
+
     // Возврат случайной соседней комнаты
-    public Place getCommunication(Place room) {
+    public Item getCommunication(Item room) {
         int num = 0;
         for (int i = 0; i < this.rooms.size(); i++) {
             if (this.rooms.get(i).equals(room)) {
@@ -93,16 +100,20 @@ public class Apartments extends Place implements Communication {
         return this.getClass().getName() + "[rooms = " + s + ", communications =" + z + ", floor =" + this.floor + ", height" + this.height + "]";
     }
 
-    public ArrayList<ArrayList<Place>> getCommunications() {
+    public ArrayList<ArrayList<Item>> getCommunications() {
         return communications;
     }
 
-    public ArrayList<Place> getRooms() {
+    public ArrayList<Item> getRooms() {
         return rooms;
     }
 
-    public Place getRoom(int number) {
+    public Item getRoom(int number) {
         return rooms.get(number);
+    }
+
+    public void setAllCommunication(int number) {
+
     }
 
     public int getFloor() {
@@ -116,4 +127,6 @@ public class Apartments extends Place implements Communication {
     public int getCountRooms() {
         return rooms.size();
     }
+
+    public void addRoom(Item item) {rooms.add(item);}
 }

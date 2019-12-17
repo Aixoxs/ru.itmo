@@ -1,7 +1,6 @@
 package creatures;
 
-import place.Place;
-import place.Room;
+import item.Item;
 
 import java.util.Objects;
 
@@ -10,7 +9,7 @@ public class Dog extends Creature {
     public enum ColorDog{RED, BLUE, BLACK, WHITE, YELLOW, GRAY, PINK};
     private ColorDog MyColor;
 
-    public Dog(Gender gender,Act act, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, ColorDog color) {
+    public Dog(Gender gender,Act act, String name, Item room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last, ColorDog color) {
         super(gender, act, name, room, smell, first, distanceToTarget, speed, last);
         this.MyColor = color;
     }

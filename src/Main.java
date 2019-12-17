@@ -2,8 +2,9 @@ import creatures.Creature;
 import creatures.Dog;
 import creatures.Ghost;
 import creatures.Human;
-import place.Apartments;
-import place.Room;
+import item.Apartments;
+import item.Room;
+
 
 
 public class Main {
@@ -19,9 +20,9 @@ public class Main {
         apartments.addCommunication(malishRoom, diningRoom);
         apartments.addCommunication(bigRoom, diningRoom, kitchen);
         Ghost ghost= new Ghost(Creature.Gender.UNKNOWN, Creature.Act.FLY, "Привидиение", kitchen, true, false, 18, 6, false, Ghost.ColorGhost.BLUE);
-        Human malish= new Human(Creature.Gender.MALE, Creature.Act.RUN, "Малыш", kitchen, false, false, 19,10, false, 97, 8);
+        Human malish= new Human(Creature.Gender.MALE, Creature.Act.RUN, "Малыш", kitchen, false, false, 19,18, false, 46, 8);
         Human frekenBok= new Human(Creature.Gender.FEMAALE, Creature.Act.JUMP,"фрекен Бок", kitchen, false, false, 23, 4, false, 47, 59);
-        Dog bimbo= new Dog(Creature.Gender.MALE, Creature.Act.RUSH, "Бимбо", kitchen, false, false, 33,17, false,  Dog.ColorDog.BLACK);
+        Dog bimbo= new Dog(Creature.Gender.MALE, Creature.Act.RUSH, "Бимбо", kitchen, false, false, 56,17, false,  Dog.ColorDog.BLACK);
         Game game = new Game(apartments);
         game.addPlayer(frekenBok);
         game.addPlayer(ghost);
@@ -30,3 +31,5 @@ public class Main {
         game.startGame();
     }
 }
+
+

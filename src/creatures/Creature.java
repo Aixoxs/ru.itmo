@@ -1,6 +1,9 @@
 package creatures;
 
-import place.Place;
+import exceptions.NotEnoughIQ;
+import item.Item;
+
+import java.io.IOException;
 
 public abstract class Creature implements MoveAction{
     public enum Gender {MALE, FEMAALE, UNKNOWN};
@@ -22,7 +25,7 @@ public abstract class Creature implements MoveAction{
     private Gender MyGender;
     private String Name;
     private double speed;
-    private Place lastRoom;
+    private Item lastRoom;
     // Наличие запаха у существа
     private boolean smell;
     // true если сушество первое в погоне
@@ -32,7 +35,7 @@ public abstract class Creature implements MoveAction{
     private double distanceToTarget;
 
 
-    public Creature(Gender gender, Act act, String name, Place room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last)  {
+    public Creature(Gender gender, Act act, String name, Item room, boolean smell, boolean first, double distanceToTarget, double speed, boolean last)  {
         this.MyAct = act;
         this.MyGender = gender;
         this.Name = name;
@@ -42,6 +45,10 @@ public abstract class Creature implements MoveAction{
         this.last = last;
         this.distanceToTarget = distanceToTarget;
         this.speed = speed;
+    }
+
+    public void changeDistance(Creature target) throws NotEnoughIQ {
+        distanceToTarget = distanceToTarget + target.speed - speed;
     }
 
     @Override
@@ -77,11 +84,11 @@ public abstract class Creature implements MoveAction{
         return this.speed;
     }
 
-    public Place getLastRoom() {
+    public Item getLastRoom() {
         return this.lastRoom;
     }
 
-    public void setLastRoom(Place room) {this.lastRoom = room;}
+    public void setLastRoom(Item room) {this.lastRoom = room;}
 
     public boolean getSmell() {
         return this.smell;
