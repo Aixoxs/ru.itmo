@@ -133,7 +133,6 @@ public class Game {
                         }
                         count += 1;
                     }
-                    //System.out.println();
                 }
             }
             if (fatigue[0] > -1) {
